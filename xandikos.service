@@ -1,0 +1,13 @@
+[Unit]
+Description=xandikos dav server
+After=network.target
+RequiresMountsFor=/mnt/storage/radu/personal
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/usr/local/bin/xandikos -d /mnt/storage/radu/personal -p 8081 -l 0.0.0.0
+
+[Install]
+WantedBy=multi-user.target
