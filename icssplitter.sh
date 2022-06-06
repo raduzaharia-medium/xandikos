@@ -12,7 +12,8 @@ while read -r line; do
         HEADER_SECTION=false
 
         printf "%s\n" "${HEADER[@]}" > event$EVENT_COUNT.ics
-    
+        echo "BEGIN:VEVENT" >> event$EVENT_COUNT.ics
+        
     elif [[ "$line" =~ END:VEVENT.* ]]; then
         echo "END:VEVENT" >> event$EVENT_COUNT.ics
         echo "END:VCALENDAR" >> event$EVENT_COUNT.ics
